@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h1>Usuarios</h1>
+
+<a href="{{ url_for('usuarios.crear') }}">+ Nuevo usuario</a>
+
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+    </tr>
+    {% for u in usuarios %}
+    <tr>
+        <td>{{ u.nombre }}</td>
+        <td>{{ u.email }}</td>
+        <td>{{ u.rol }}</td>
+        <td>
+            <a href="{{ url_for('usuarios.editar', id=u.id) }}">Editar</a>
+            {% if u.id != current_user.id %}
+            <form action="{{ url_for('usuarios.eliminar', id=u.id) }}" method="POST" style="display:inline;">
+                <button type="submit" onclick="return confirm('¿Eliminar este usuario?')">Eliminar</button>
+            </form>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

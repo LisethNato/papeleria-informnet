@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h1>{{ 'Editar' if usuario else 'Nuevo' }} usuario</h1>
+
+<form method="POST">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" value="{{ usuario.nombre if usuario else '' }}" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" value="{{ usuario.email if usuario else '' }}" required>
+
+    <label>Contraseña {% if usuario %}(dejar vacío para no cambiarla){% endif %}:</label>
+    <input type="password" name="password" {% if not usuario %}required{% endif %}>
+
+    <label>Rol:</label>
+    <select name="rol" required>
+        <option value="vendedor" {% if usuario and usuario.rol == 'vendedor' %}selected{% endif %}>Vendedor</option>
+        <option value="admin" {% if usuario and usuario.rol == 'admin' %}selected{% endif %}>Admin</option>
+    </select>
+
+    <button type="submit">Guardar</button>
+</form>
+{% endblock %}

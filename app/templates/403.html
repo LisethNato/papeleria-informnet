@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h1>Acceso denegado</h1>
+<p>No tienes permisos de administrador para realizar esta acción.</p>
+<a href="{{ url_for('main.inicio') }}">Volver al inicio</a>
+{% endblock %}

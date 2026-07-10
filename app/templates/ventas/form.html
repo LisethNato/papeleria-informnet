@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h1>Nueva venta</h1>
+
+<form method="POST">
+    <label>Cliente:</label>
+    <select name="cliente_id" required>
+        <option value="">-- Selecciona un cliente --</option>
+        {% for c in clientes %}
+        <option value="{{ c.id }}">{{ c.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <h3>Productos</h3>
+    <table border="1">
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Stock disponible</th>
+            <th>Cantidad a vender</th>
+        </tr>
+        {% for p in productos %}
+        <tr>
+            <td>{{ p.nombre }}</td>
+            <td>${{ "%.2f"|format(p.precio) }}</td>
+            <td>{{ p.stock }}</td>
+            <td>
+                <input type="number" name="cantidad_{{ p.id }}" min="0" max="{{ p.stock }}" value="0">
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <button type="submit">Registrar venta</button>
+</form>
+{% endblock %}

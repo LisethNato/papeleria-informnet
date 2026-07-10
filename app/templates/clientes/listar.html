@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h1>Clientes</h1>
+
+{% if current_user.rol == 'admin' %}
+<a href="{{ url_for('clientes.crear') }}">+ Nuevo cliente</a>
+{% endif %}
+
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Dirección</th>
+        {% if current_user.rol == 'admin' %}
+        <th>Acciones</th>
+        {% endif %}
+    </tr>
+    {% for c in clientes %}
+    <tr>
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{ c.telefono }}</td>
+        <td>{{ c.direccion }}</td>
+        {% if current_user.rol == 'admin' %}
+        <td>
+            <a href="{{ url_for('clientes.editar', id=c.id) }}">Editar</a>
+            <form action="{{ url_for('clientes.eliminar', id=c.id) }}" method="POST" style="display:inline;">
+                <button type="submit" onclick="return confirm('¿Eliminar este cliente?')">Eliminar</button>
+            </form>
+        </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h1>{{ 'Editar' if cliente else 'Nuevo' }} cliente</h1>
+
+<form method="POST">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" value="{{ cliente.nombre if cliente else '' }}" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" value="{{ cliente.email if cliente else '' }}">
+
+    <label>Teléfono:</label>
+    <input type="text" name="telefono" value="{{ cliente.telefono if cliente else '' }}">
+
+    <label>Dirección:</label>
+    <input type="text" name="direccion" value="{{ cliente.direccion if cliente else '' }}">
+
+    <button type="submit">Guardar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h1>Ventas</h1>
+
+<a href="{{ url_for('ventas.crear') }}">+ Nueva venta</a>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Fecha</th>
+        <th>Cliente</th>
+        <th>Vendedor</th>
+        <th>Total</th>
+        <th>Acciones</th>
+    </tr>
+    {% for v in ventas %}
+    <tr>
+        <td>{{ v.id }}</td>
+        <td>{{ v.fecha.strftime('%d/%m/%Y %H:%M') }}</td>
+        <td>{{ v.cliente.nombre }}</td>
+        <td>{{ v.usuario.nombre }}</td>
+        <td>${{ "%.2f"|format(v.total) }}</td>
+        <td><a href="{{ url_for('ventas.detalle', id=v.id) }}">Ver detalle</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

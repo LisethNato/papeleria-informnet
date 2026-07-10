@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Papelería INFORMNET</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <nav>
+        <a href="{{ url_for('main.inicio') }}">Papelería INFORMNET</a>
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('productos.listar') }}">Productos</a>
+            <a href="{{ url_for('clientes.listar') }}">Clientes</a>
+            <a href="{{ url_for('ventas.listar') }}">Ventas</a>
+            {% if current_user.rol == 'admin' %}
+            <a href="{{ url_for('usuarios.listar') }}">Usuarios</a>
+            {% endif %}
+            <a href="{{ url_for('auth.logout') }}">Cerrar sesión ({{ current_user.nombre }})</a>
+        {% else %}
+            <a href="{{ url_for('auth.login') }}">Iniciar sesión</a>
+        {% endif %}
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <div class="page">
+        {% block contenido %}
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>
