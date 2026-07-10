@@ -173,6 +173,18 @@ Las pruebas utilizan la base de datos `papeleria_test_db` (definida en `TEST_DAT
 | Ver historial de ventas | ✅ | ✅ |
 | Gestionar usuarios | ✅ | ❌ |
 
+## Credenciales de acceso para revisión
+
+Para facilitar la evaluación del proyecto, se dispone de una cuenta de acceso con rol de administrador:
+
+| Campo | Valor |
+|---|---|
+| **URL de acceso** | *(agregar aquí la URL de Azure una vez desplegado, o `http://127.0.0.1:5000/login` en local)* |
+| **Correo** | `davidm@papeleria.com` |
+| **Contraseña** | `david123` |
+
+> ⚠️ **Nota de seguridad:** esta cuenta se creó únicamente con fines de evaluación académica. No debe reutilizarse esta contraseña en ningún otro sistema. Una vez finalizada la revisión, se recomienda eliminar o cambiar la contraseña de esta cuenta.
+
 ## Despliegue en Azure
 
 El proyecto está preparado para desplegarse en **Azure App Service (Linux)** con **Azure Database for PostgreSQL Flexible Server**, sin necesidad de modificar la lógica de la aplicación — únicamente:
