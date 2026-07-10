@@ -179,7 +179,7 @@ Para facilitar la evaluación del proyecto, se dispone de una cuenta de acceso c
 
 | Campo | Valor |
 |---|---|
-| **URL de acceso** | *(agregar aquí la URL de Azure una vez desplegado, o `http://127.0.0.1:5000/login` en local)* |
+| **URL de acceso** | *(AZURE, o `http://127.0.0.1:5000/login` en local)* |
 | **Correo** | `davidm@papeleria.com` |
 | **Contraseña** | `david123` |
 
