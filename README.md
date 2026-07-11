@@ -2,6 +2,7 @@
 
 Aplicación web para la gestión de una papelería: control de productos, clientes, ventas y usuarios con roles diferenciados (administrador / vendedor).
 
+Desarrollada como proyecto académico para la materia de **Cloud Computing**, con despliegue previsto en **Microsoft Azure App Service**.
 
 ## Tecnologías utilizadas
 
@@ -162,6 +163,18 @@ pytest -v
 
 Las pruebas utilizan la base de datos `papeleria_test_db` (definida en `TEST_DATABASE_URL`), independiente de la base de datos de desarrollo, y limpian las tablas automáticamente antes y después de cada prueba.
 
+## Credenciales de acceso para revisión
+
+Para facilitar la evaluación del proyecto, se dispone de una cuenta de acceso con rol de administrador:
+
+| Campo | Valor |
+|---|---|
+| **URL de acceso** | https://papeleria-informnet-g7hrgve4c4edhrb3.centralus-01.azurewebsites.net |
+| **Correo** | `davidm@papeleria.com` |
+| **Contraseña** | `david123` |
+
+> ⚠️ **Nota de seguridad:** esta cuenta se creó únicamente con fines de evaluación académica. Una vez finalizada la revisión, se recomienda eliminar o cambiar la contraseña de esta cuenta.
+
 ## Roles y permisos
 
 | Acción | Administrador | Vendedor |
@@ -173,26 +186,15 @@ Las pruebas utilizan la base de datos `papeleria_test_db` (definida en `TEST_DAT
 | Ver historial de ventas | ✅ | ✅ |
 | Gestionar usuarios | ✅ | ❌ |
 
-## Credenciales de acceso para revisión
-
-Para facilitar la evaluación del proyecto, se dispone de una cuenta de acceso con rol de administrador:
-
-| Campo | Valor |
-|---|---|
-| **URL de acceso** | *(AZURE, o `http://127.0.0.1:5000/login` en local)* |
-| **Correo** | `davidm@papeleria.com` |
-| **Contraseña** | `david123` |
-
-> ⚠️ **Nota de seguridad:** esta cuenta se creó únicamente con fines de evaluación académica. No debe reutilizarse esta contraseña en ningún otro sistema. Una vez finalizada la revisión, se recomienda eliminar o cambiar la contraseña de esta cuenta.
-
 ## Despliegue en Azure
 
-El proyecto está preparado para desplegarse en **Azure App Service (Linux)** con **Azure Database for PostgreSQL Flexible Server**, sin necesidad de modificar la lógica de la aplicación — únicamente:
+El proyecto está desplegado en **Azure App Service (Linux)** con **Azure Database for PostgreSQL Flexible Server** como base de datos de producción.
 
-1. Configurar las variables de entorno equivalentes desde el panel de Azure App Service.
-2. Actualizar `DATABASE_URL` apuntando a la instancia de PostgreSQL en Azure.
-3. Publicar el código (por ejemplo, mediante integración continua con GitHub Actions).
+- **Aplicación web**: Azure App Service (Linux, Python 3.14, plan Free F1)
+- **Base de datos**: Azure Database for PostgreSQL Flexible Server (`pg-papeleriainformnet`, Burstable B1ms)
+- **Integración continua**: el despliegue se realiza automáticamente mediante GitHub Actions (configurado desde el Centro de implementación de Azure) cada vez que se sube código a la rama `main`.
+- **Pruebas automatizadas**: además del despliegue, un workflow independiente (`.github/workflows/test.yml`) ejecuta la suite completa de 56 pruebas con pytest en cada push, usando un contenedor de PostgreSQL como servicio.
 
 ## Autor
 
-Proyecto desarrollado por Liseth Nato, para la materia de Cloud Computing.
+Proyecto desarrollado para la materia de Cloud Computing.
