@@ -2,8 +2,19 @@
 
 {% block contenido %}
 
-<h1>Bienvenido al Sistema de la Papelería INFORMNET</h1>
+<div style="text-align: center; padding: 1rem 0 2rem;">
+    <img src="{{ url_for('static', filename='img/logo.png') }}"
+         alt="Logo Papelería INFORMNET"
+         style="max-width: 220px; width: 100%; height: auto; margin-bottom: 1.5rem;">
 
-<p>La aplicación está funcionando correctamente.</p>
+    <h1>Bienvenidos a Papelería INFORMNET</h1>
+
+    <p style="max-width: 640px; margin: 0 auto; color: var(--ink-soft); font-size: 1.05rem; line-height: 1.7;">
+        Somos una papelería dedicada a ofrecer todo lo que necesitas para el hogar, la oficina
+        y el estudio: cuadernos, útiles escolares, artículos de oficina y mucho más.
+        Este sistema te permite gestionar de forma sencilla nuestro inventario, clientes y ventas,
+        garantizando un servicio rápido, organizado y confiable.
+    </p>
+</div>
 
 {% endblock %}
