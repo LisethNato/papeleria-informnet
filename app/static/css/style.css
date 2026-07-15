@@ -14,7 +14,7 @@
     --ink-blue: #2C3E70;
     --ink-blue-dark: #202E54;
     --pencil: #D98E31;
-    --pencil-dark: #B9741F;
+    --pencil-dark: #2cc4ea;
     --eraser: #C1503F;
     --eraser-dark: #9E3F32;
     --success: #3F7D58;
@@ -148,7 +148,7 @@ ul.flashes li {
     border: none;
     cursor: pointer;
     background: var(--ink-blue);
-    color: #70defc;
+    color: #fff;
     transition: transform 0.05s ease, background 0.15s ease;
 }
 .btn:hover, button:hover { background: var(--ink-blue-dark); }
