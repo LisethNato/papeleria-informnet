@@ -148,7 +148,7 @@ ul.flashes li {
     border: none;
     cursor: pointer;
     background: var(--ink-blue);
-    color: #fff;
+    color: #70defc;
     transition: transform 0.05s ease, background 0.15s ease;
 }
 .btn:hover, button:hover { background: var(--ink-blue-dark); }
