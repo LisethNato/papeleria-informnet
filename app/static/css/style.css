@@ -13,7 +13,9 @@
     --ink-soft: #5B5F6B;
     --ink-blue: #2C3E70;
     --ink-blue-dark: #202E54;
-    --pencil: #D98E31;
+    --pencil: #eda437;
+    --nuevousuario: #a6bd22;
+    --entrar: #ec75e6;
     --pencil-dark: #2cc4ea;
     --eraser: #C1503F;
     --eraser-dark: #9E3F32;
@@ -21,6 +23,7 @@
     --success-bg: #E7F1EA;
     --danger-bg: #F7E7E4;
     --info-bg: #E9EEF6;
+    --nuevousuario: #13ad94;
     --radius: 10px;
     --shadow: 0 1px 2px rgba(35, 38, 43, 0.06), 0 4px 14px rgba(35, 38, 43, 0.05);
 }
@@ -147,11 +150,11 @@ ul.flashes li {
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    background: var(--ink-blue);
+    background: var(--entrar);
     color: #fff;
     transition: transform 0.05s ease, background 0.15s ease;
 }
-.btn:hover, button:hover { background: var(--ink-blue-dark); }
+.btn:hover, button:hover { background: var(--ink-blue); }
 .btn:active, button:active { transform: translateY(1px); }
 
 button[onclick*="confirm"] {
@@ -166,7 +169,7 @@ button[onclick*="confirm"]:hover {
 
 a[href*="/nuevo"], a[href*="/nueva"] {
     display: inline-block;
-    background: var(--pencil);
+    background: var(--nuevousuario);
     color: #fff;
     padding: 0.55rem 1.1rem;
     border-radius: 8px;
