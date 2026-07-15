@@ -14,7 +14,7 @@
     --ink-blue: #2C3E70;
     --ink-blue-dark: #202E54;
     --pencil: #eda437;
-    --nuevousuario: #a6bd22;
+    --usu: #e61227;
     --entrar: #ec75e6;
     --pencil-dark: #2cc4ea;
     --eraser: #C1503F;
@@ -169,7 +169,7 @@ button[onclick*="confirm"]:hover {
 
 a[href*="/nuevo"], a[href*="/nueva"] {
     display: inline-block;
-    background: var(--nuevousuario);
+    background: var(--usu);
     color: #fff;
     padding: 0.55rem 1.1rem;
     border-radius: 8px;
