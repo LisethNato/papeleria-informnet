@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
-<h1>Clientes</h1>
+<h1>Clientess</h1>
 
 {% if current_user.rol == 'admin' %}
 <a href="{{ url_for('clientes.crear') }}">+ Nuevo cliente</a>
