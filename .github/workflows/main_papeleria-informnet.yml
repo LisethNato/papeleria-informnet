@@ -74,3 +74,8 @@ jobs:
           app-name: 'papeleria-informnet'
           slot-name: 'Production'
           
+      - name: Restart Azure App Service
+        uses: azure/webapps-restart@v3
+        with:
+          app-name: 'papeleria-informnet'
+          slot-name: 'Production'
